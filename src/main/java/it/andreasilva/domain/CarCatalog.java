@@ -2,9 +2,10 @@ package it.andreasilva.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CarCatalog {
-    private static List<Car> cars = new ArrayList<Car>();
+    private static List<Car> cars = new ArrayList<>();
 
     static {
         cars.add(new Car("FIAT", "Panda", Color.BLACK, 130));
@@ -20,7 +21,20 @@ public class CarCatalog {
         cars.add(new Car("ALFAROMEO", "Giulietta", Color.YELLOW, 197));
     }
 
+    public static List<Car> getCars(Predicate<? super Car> predicate) {
+        if (predicate == null) {
+            return cars;
+        }
+        List<Car> filteredCar = new ArrayList<>();
+        for (Car car : cars) {
+            if(predicate.test(car)) {
+                filteredCar.add(car);
+            }
+        }
+        return filteredCar;
+    }
+
     public static List<Car> getCars() {
-        return cars;
+        return getCars(null);
     }
 }
