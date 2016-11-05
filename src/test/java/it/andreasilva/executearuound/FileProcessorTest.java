@@ -1,5 +1,6 @@
-package it.andreasilva.execute.around;
+package it.andreasilva.executearuound;
 
+import it.andreasilva.executearuound.FileProcessor;
 import org.apache.commons.io.FileUtils;
 import org.junit.Before;
 import org.junit.Rule;
