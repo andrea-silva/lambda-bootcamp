@@ -28,4 +28,14 @@ public class Car {
     public int getSpeed() {
         return speed;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "maker='" + maker + '\'' +
+                ", model='" + model + '\'' +
+                ", color=" + color +
+                ", speed=" + speed +
+                '}';
+    }
 }
